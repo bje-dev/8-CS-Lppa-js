@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejemplo</title>
+	<script type="text/javascript">
+		function suma(a,b)
+
+		{
+			let resultado=a+b;
+			alert("El resultado es :" + resultado);
+		}
+
+function mostrarnombre()
+{
+
+document.getElementById("mensaje").innerHTML=nombre.country[0].country_id;
+	
+}
+
+
+
+
+async function traerpais()
+{
+	const respuesta= await fetch("https://api.nationalize.io?name=michael");
+	
+	if(respuesta)
+	{
+		const nombre=respuesta.json();
+		return nombre;
+	}
+	else
+	{
+		let err404="Error 404";
+		alert(err404);
+		throw new Error(err404);
+
+	}
+	
+}
+
+traerpais().then(mostrarnombre);
+
+</script>
+
+</head>
+<body>
+
+<h1>Project</h1>
+<script type="text/javascript">
+suma("Bernardo","Espinoza");	
+</script>
+<p>Projecto!</p>
+
+<p id="mensaje">Cargando</p>
+<script type="text/javascript">
+	mostrarnombre("Bert");
+</script>
+
+</body>
+</html>
