@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FINAL LPPA</title>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script languague="javascript">
+
+function mostrar(id) {
+          
+			if (id=="2") 
+			{
+				$("#dosdim").show();
+				$("#tresdim").hide();
+
+			}
+
+			if(id=="3") 
+			{  
+				$("#dosdim").hide();
+				$("#tresdim").show();
+			}
+            
+        };
+
+function valida2d()
+{
+  var vax = document.getElementById("ax").value;
+  var vay = document.getElementById("ay").value;
+
+  var vbx = document.getElementById("bx").value;
+  var vby = document.getElementById("by").value;
+
+  if (vax.value === "" || vay.value === "" || vbx.value === "" || vby.value === "" ) {
+    alert("Por favor, completa los campos faltantes");
+    vax.focus();
+    return false;
+
+
+}else{
+
+	let resultado= Math.sqrt(((vbx-vax)*2)+((vby-vay)*2));
+
+
+	 alert("El resultado es "+ resultado);
+	 return true;
+}
+
+};
+
+function valida3d()
+{
+  var vax = document.getElementById("ax").value;
+  var vay = document.getElementById("ay").value;
+  var vaz = document.getElementById("az").value;
+
+  var vbx = document.getElementById("bx").value;
+  var vby = document.getElementById("by").value;
+  var vbz = document.getElementById("bz").value;
+
+  
+
+
+  if (vax.value === "" ) {
+    alert("Por favor, completa los campos faltantes");
+    vax.focus();
+    return false;
+
+
+}else{
+
+	let resultado= Math.sqrt(((vbx-vax)*2)+((vby-vay)*2)+(vbz-vaz)*2);
+
+
+	 alert("El resultado es "+resultado);
+	 return true;
+}
+
+};
+
+
+
+
+</script>
+
+</head>
+<body>
+<form>
+	
+	<select id="status" name="status" onChange="mostrar(this.value);">
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+
+
+    
+
+<div id="dosdim" style="display: none;">
+    
+    <h2>DOS DIMENSIONES</h2>
+    
+    <form>
+    <p>Introduzca las coordenadas de puntos</p>	
+    <br>
+    <p>
+      <tr>
+      <th>DIMENSION X</th>
+      <th>DIMENSION Y</th>
+    </tr>  
+    </p>
+
+    <p>
+    <a>A</a>	
+    <input type="number" name="ax" id="ax" value="0" />,
+    <input type="number" name="ay" id="ay" value="0" />
+    </p>
+    <br>
+    <p>
+    <a>B</a>
+    <input type="number" name="bx" id="bx" value="0" />,
+    <input type="number" name="by" id="by" value="0" />
+	</p>
+
+	<br>
+    <input type="button" value="Calcular" onclick="return valida2d()" />
+    
+    </form>
+</div>
+
+<div id="tresdim" style="display: none;">
+    
+    <h2>TRES DIMENSIONES</h2>
+    
+    <form >
+    <p>Introduzca las coordenadas de puntos</p>	
+	<p>
+	<a>A</a>
+    <input type="number" name="ax" id="ax" value="" />,
+    <input type="number" name="ay" id="ay" value="" />,
+    <input type="number" name="az" id="az" value="" />
+	</p>
+	<br>
+	<p>
+	<a>B</a>
+    <input type="number" name="bx" id="bx" value="" />,
+    <input type="number" name="by" id="by" value="" />,
+    <input type="number" name="bz" id="bz" value="" />
+	</p>
+	<br>
+    <input type="button" value="Calcular" onclick="return valida3d()" />
+    
+    </form>
+</div>
+</form>
+
+	
+
+</body>
+</html>
